@@ -43,23 +43,22 @@ class HomeScreen : Fragment() {
         if(identitiesArray.isNotEmpty()) {
             val inflater = LayoutInflater.from(context)
 
+            if(hasNewIdentityBeenCreated == true){
+                val name = arguments?.getString("name")
+                val email = arguments?.getString("email")
+                val phoneNumber = arguments?.getString("phoneNumber")
+                if (name != null && email != null && phoneNumber != null) {
+                    generateIdentity(name, email, phoneNumber)
+                }
+            }
+
             // Render each Identity "card" individually to display on the user's home screen
             for(identity in identitiesArray) {
-
                 val cardView = inflater.inflate(R.layout.identity_cards, binding.homeScreen, false)
                 cardView.findViewById<TextView>(R.id.identity_card_name).text = identity.name
                 cardView.findViewById<TextView>(R.id.identity_card_email).text = identity.email
                 cardView.findViewById<TextView>(R.id.identity_card_phone_number).text = identity.phoneNumber
                 binding.homeScreen.addView(cardView)
-            }
-        }
-
-        if(hasNewIdentityBeenCreated == true){
-            val name = arguments?.getString("name")
-            val email = arguments?.getString("email")
-            val phoneNumber = arguments?.getString("phoneNumber")
-            if (name != null && email != null && phoneNumber != null) {
-                generateIdentity(name, email, phoneNumber)
             }
         }
 
