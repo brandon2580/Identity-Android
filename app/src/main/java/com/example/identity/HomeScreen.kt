@@ -19,12 +19,6 @@ var identitiesArray = mutableListOf<Identity>()
 class HomeScreen : Fragment() {
     private var _binding: HomeScreenBinding? = null
 
-    private fun generateIdentity(name: String, email: String, phoneNumber: String) {
-        class IdentityImpl(override val name: String, override val email: String, override val phoneNumber: String) : Identity
-        val newIdentity = IdentityImpl(name, email, phoneNumber)
-        identitiesArray.add(newIdentity)
-    }
-
     // This property is only valid between onCreateView and onDestroyView.
     private val binding get() = _binding!!
 
@@ -36,19 +30,28 @@ class HomeScreen : Fragment() {
         return binding.root
     }
 
+    private fun generateIdentity(name: String, email: String, phoneNumber: String) {
+        class IdentityImpl(override val name: String, override val email: String, override val phoneNumber: String) : Identity
+        val newIdentity = IdentityImpl(name, email, phoneNumber)
+        identitiesArray.add(newIdentity)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val hasNewIdentityBeenCreated = arguments?.getBoolean("identityCreated")
 
         if(identitiesArray.isNotEmpty()) {
             val inflater = LayoutInflater.from(context)
-//            for(identity in identitiesArray) {
-//                val cardView = inflater.inflate(R.layout.identity_card, binding.buttonCreateIdentity, false)
-//                cardView.findViewById<TextView>(R.id.identity_card_name).text = identity.name
-//                cardView.findViewById<TextView>(R.id.identity_card_email).text = identity.email
-//                cardView.findViewById<TextView>(R.id.identity_card_phone_number).text = identity.phoneNumber
-//                binding.identityCards.addView(cardView)
-//            }
+
+            // Render each Identity "card" individually to display on the user's home screen
+            for(identity in identitiesArray) {
+
+                val cardView = inflater.inflate(R.layout.identity_cards, binding.homeScreen, false)
+                cardView.findViewById<TextView>(R.id.identity_card_name).text = identity.name
+                cardView.findViewById<TextView>(R.id.identity_card_email).text = identity.email
+                cardView.findViewById<TextView>(R.id.identity_card_phone_number).text = identity.phoneNumber
+                binding.homeScreen.addView(cardView)
+            }
         }
 
         if(hasNewIdentityBeenCreated == true){

@@ -6,25 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".HomeScreen">
 
-    <TextView
-        android:id="@+id/identity_home"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/home_screen"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/identity_home_header"
-        app:layout_constraintBottom_toTopOf="@id/button_create_identity"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical">
 
-    <include layout="@layout/identity_card" android:id="@+id/identity_cards" />
+        <TextView
+            android:id="@+id/identity_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/identity_home_header"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@id/button_create_identity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button_create_identity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/new_identity_button_text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/identity_home" />
+        <Button
+            android:id="@+id/button_create_identity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_identity_button_text"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/identity_home" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

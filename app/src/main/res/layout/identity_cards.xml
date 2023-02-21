@@ -4,17 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:id="@+id/identity_cards"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+
         <LinearLayout
             android:id="@+id/identity_card"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:background="@color/cardview_dark_background"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@color/cardview_dark_background"
             android:layout_weight="1">
 
             <TextView
@@ -32,5 +28,4 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
