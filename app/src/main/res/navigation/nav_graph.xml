@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_Home_to_CreateIdentity"
             app:destination="@id/CreateIdentity" />
+        <action
+            android:id="@+id/action_Home_to_ViewIdentity"
+            app:destination="@id/ViewIdentity" />
     </fragment>
     <fragment
         android:id="@+id/CreateIdentity"
@@ -23,6 +26,16 @@
 
         <action
             android:id="@+id/action_CreateIdentity_to_Home"
+            app:destination="@id/IdentityHome" />
+    </fragment>
+    <fragment
+        android:id="@+id/ViewIdentity"
+        android:name="com.example.identity.ViewIdentity"
+        android:label="View Identity Screen"
+        tools:layout="@layout/view_identity_screen">
+
+        <action
+            android:id="@+id/action_ViewIdentity_to_Home"
             app:destination="@id/IdentityHome" />
     </fragment>
 </navigation>

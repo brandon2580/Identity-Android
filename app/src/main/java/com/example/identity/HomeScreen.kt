@@ -68,6 +68,7 @@ class HomeScreen : Fragment() {
                 val clickedPosition = it.tag as Int // Get the position of the clicked card from its tag
                 val clickedIdentity = identitiesArray[clickedPosition] // Get the clicked identity from the array
                 println("Clicked on ${clickedIdentity.name}!")
+                findNavController().navigate(R.id.action_Home_to_ViewIdentity)
             }
         }
 
